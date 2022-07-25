@@ -1,0 +1,5 @@
+# ninja log v5
+0	609	1581984620	CMakeFiles/penguin_test.dir/PenguinTest.cpp.o	6b71272ca33a244
+1	67	1581984765	build.ninja	5e9485a85a10f46a
+0	71	1582914392	build.ninja	5e9485a85a10f46a
+1	665	1582914393	CMakeFiles/penguin_test.dir/PenguinTest.cpp.o	20427bbc374e8fe0

@@ -1,0 +1,1 @@
+/usr/bin/clang++-9  -g -D_GLIBCXX_DEBUG   CMakeFiles/server.dir/main.cpp.o  -o server  -lhiredis -lpthread libmylib.a libmylib.a /usr/local/lib/libfmt.a /home/hoss/vcpkg/installed/x64-linux/debug/lib/manual-link/libgtest_maind.a /home/hoss/vcpkg/installed/x64-linux/debug/lib/libgtestd.a -lpthread 

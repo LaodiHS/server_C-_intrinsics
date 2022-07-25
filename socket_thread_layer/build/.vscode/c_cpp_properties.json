@@ -1,0 +1,23 @@
+{
+    "configurations": [ {
+            "name": "Linux",
+            "includePath": [
+                "${workspaceFolder}/**"
+                ,"/usr/local/lib/**", 
+                "/usr/local/include/**",
+                "/home/hoss/Documents/algorithms/server_layer/server/socket_layer/cereal/include/*"
+            ],
+            "defines": [],
+            "compilerPath": "/usr/bin/clang++-9",
+            "cStandard": "c11",
+            "cppStandard": "c++17",
+            "intelliSenseMode": "clang-x64",
+         
+            "configurationProvider": "go2sh.cmake-integration",
+            "compilerArgs": [
+                "-I/home/hoss/Documents/algorithms/server_layer/server/socket_layer/cereal/include", "-lpthread"
+            ]
+        } 
+    ],
+    "version": 4
+}

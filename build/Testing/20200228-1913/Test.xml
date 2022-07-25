@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Site BuildName="(empty)"
+	BuildStamp="20200228-1913-Experimental"
+	Name="(empty)"
+	Generator="ctest-3.16.3"
+	CompilerName=""
+	CompilerVersion=""
+	OSName="Linux"
+	Hostname="hoss"
+	OSRelease="5.3.0-40-generic"
+	OSVersion="#32~18.04.1-Ubuntu SMP Mon Feb 3 14:05:59 UTC 2020"
+	OSPlatform="x86_64"
+	Is64Bits="1"
+	VendorString="GenuineIntel"
+	VendorID="Intel Corporation"
+	FamilyID="6"
+	ModelID="94"
+	ProcessorCacheSize="6144"
+	NumberOfLogicalCPU="8"
+	NumberOfPhysicalCPU="4"
+	TotalVirtualMemory="2047"
+	TotalPhysicalMemory="64023"
+	LogicalProcessorsPerPhysical="2"
+	ProcessorClockFrequency="2600.09"
+	>
+	<Testing>
+		<StartDateTime>Feb 28 11:17 PST</StartDateTime>
+		<StartTestTime>1582917440</StartTestTime>
+		<TestList>
+			<Test>./testing/penguin_test</Test>
+		</TestList>
+		<Test Status="notrun">
+			<Name>penguin_test</Name>
+			<Path>./testing</Path>
+			<FullName>./testing/penguin_test</FullName>
+			<FullCommandLine></FullCommandLine>
+			<Results>
+				<NamedMeasurement type="numeric/double" name="Processors">
+					<Value>1</Value>
+				</NamedMeasurement>
+				<NamedMeasurement type="text/string" name="Completion Status">
+					<Value>Unable to find executable</Value>
+				</NamedMeasurement>
+				<NamedMeasurement type="text/string" name="Command Line">
+					<Value></Value>
+				</NamedMeasurement>
+				<Measurement>
+					<Value>Unable to find executable: pengin_test</Value>
+				</Measurement>
+			</Results>
+		</Test>
+		<EndDateTime>Feb 28 11:17 PST</EndDateTime>
+		<EndTestTime>1582917440</EndTestTime>
+		<ElapsedMinutes>0</ElapsedMinutes>
+	</Testing>
+</Site>

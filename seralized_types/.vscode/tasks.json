@@ -1,0 +1,24 @@
+{
+    "tasks": [
+        {
+
+            "type": "shell",
+            "label": "clang++-9 build active file",
+            "command": "/usr/bin/clang++-9",
+            "args": [   "-std=c++17",
+                "-lpqxx", "-lpq", "-lhiredis", "-lpthread" ,
+                "-g",
+                "${file}",
+                "-o","${fileDirname}/build/a.out","-v", "-D_GLIBCXX_DEBUG"
+              
+            ],
+            "options": {
+                "cwd": "/usr/bin"
+            }
+        },
+
+        
+         
+    ],
+    "version": "2.0.0"
+}

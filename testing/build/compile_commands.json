@@ -1,0 +1,7 @@
+[
+{
+  "directory": "/home/hoss/Documents/algorithms/server_layer/server/testing/build",
+  "command": "/usr/bin/g++-9    -g   -o CMakeFiles/penguin_test.dir/PenguinTest.cpp.o -c /home/hoss/Documents/algorithms/server_layer/server/testing/PenguinTest.cpp",
+  "file": "/home/hoss/Documents/algorithms/server_layer/server/testing/PenguinTest.cpp"
+}
+]

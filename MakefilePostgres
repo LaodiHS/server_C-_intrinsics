@@ -1,0 +1,12 @@
+
+LIBS=../src/*.o -I../src --std=c++17 -Ofast -lhiredis -lpthread -lpqxx -lpq
+#  place xx.cpp before -lpqxx -lpq So postgress c++ library can connect
+all: demo 
+
+demo:
+	clang++-9 -v postgres.cpp -o demo ${LIBS}
+
+
+clean:
+	rm -f demo
+

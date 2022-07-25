@@ -1,0 +1,8 @@
+[
+   
+    {
+      "directory": "/home/hoss/Documents/algorithms/server_layer/server/build",
+      "command": "/usr/bin/em++ -stdlib=libc++ -DDEBUG -DGFLAGS_IS_A_DLL=0 -Wall  -std=c++17 -o ${fileDirname}/${fileBasenameNoExtension}",
+      "file": "/home/hoss/Documents/algorithms/server_layer/server/wasim_generated/src/module.cpp"
+    }
+]

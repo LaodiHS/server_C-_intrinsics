@@ -1,0 +1,1 @@
+/usr/bin/clang++-9  -g -D_GLIBCXX_DEBUG -D_GLIBCXX_DEBUG   CMakeFiles/penguin_test.dir/PenguinTest.cpp.o  -o penguin_test  ../lib/libgtest_maind.a ../libmylib.a ../lib/libgtestd.a /usr/local/lib/libfmt.a /home/hoss/vcpkg/installed/x64-linux/debug/lib/manual-link/libgtest_maind.a /home/hoss/vcpkg/installed/x64-linux/debug/lib/libgtestd.a -lpthread 

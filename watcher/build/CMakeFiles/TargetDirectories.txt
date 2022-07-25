@@ -1,0 +1,7 @@
+/home/hoss/Documents/algorithms/server_layer/server/watcher/build/CMakeFiles/install/strip.dir
+/home/hoss/Documents/algorithms/server_layer/server/watcher/build/CMakeFiles/install/local.dir
+/home/hoss/Documents/algorithms/server_layer/server/watcher/build/CMakeFiles/edit_cache.dir
+/home/hoss/Documents/algorithms/server_layer/server/watcher/build/CMakeFiles/efsw.dir
+/home/hoss/Documents/algorithms/server_layer/server/watcher/build/CMakeFiles/rebuild_cache.dir
+/home/hoss/Documents/algorithms/server_layer/server/watcher/build/CMakeFiles/list_install_components.dir
+/home/hoss/Documents/algorithms/server_layer/server/watcher/build/CMakeFiles/install.dir

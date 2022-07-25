@@ -1,0 +1,47 @@
+{
+    "configurations": [ {
+            "name": "Linux",
+            "includePath": [
+
+                "${workspaceFolder}/*"
+                ,"/usr/local/lib/**", 
+                "/usr/local/include/**",
+                "${workspaceFolder}/external_cpp_libs/**",
+                "/home/hoss/Documents/algorithms/server_layer/server/socket_thread_layer/cereal/include/*",
+                "/home/hoss/vcpkg/installed/x64-linux/include/**",
+                "/usr/src/glibc/*",
+                "/usr/src/glibc/glibc-2.27/sysdeps/unix/sysv/linux/*",
+                "/usr/src/glibc/glibc-2.27/nptl/*"
+
+            ],
+            "defines": [],
+            "compilerPath": "/usr/bin/clang++-9",
+            "cStandard": "c11",
+            "cppStandard": "c++17",
+            "intelliSenseMode": "clang-x64",
+         
+            "configurationProvider": "go2sh.cmake-integration",
+            "compilerArgs": [
+                "-lhiredis", "-lpthread", "-lpqxx", "-lpq" ,"-lfmt"
+            ]
+        } , {
+            "name": "Linux",
+            "includePath": [
+                "${workspaceFolder}/**",
+                "home/hoss/emsdk/upstream/emscripten/system/include/**"
+            ],
+            "defines": [],
+            "compilerPath": "/home/hoss/emsdk/upstream/emscripten/em++",
+            "cStandard": "c11",
+            "cppStandard": "c++17",
+            "intelliSenseMode": "clang-x64",
+            "compileCommands": "${workspaceFolder}/.vscode/compile_commands2.json",
+            "configurationProvider": "go2sh.cmake-integration",
+            "compilerArgs": [
+                "-std=c++11" ,"-lhiredis", "-lpthread", "-lpqxx", "-lpq"
+            
+            ]
+        } 
+    ],
+    "version": 4
+}

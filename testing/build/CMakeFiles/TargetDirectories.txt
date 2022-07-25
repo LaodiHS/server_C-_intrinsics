@@ -1,0 +1,3 @@
+/home/hoss/Documents/algorithms/server_layer/server/testing/build/CMakeFiles/rebuild_cache.dir
+/home/hoss/Documents/algorithms/server_layer/server/testing/build/CMakeFiles/penguin_test.dir
+/home/hoss/Documents/algorithms/server_layer/server/testing/build/CMakeFiles/edit_cache.dir

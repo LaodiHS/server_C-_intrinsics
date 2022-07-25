@@ -1,0 +1,40 @@
+{
+    "configurations": [  {
+            "name": "Linux",
+            "includePath": [
+                "${workspaceFolder}/**"
+            
+            ],
+            "defines": [],
+            "compilerPath": "/home/hoss/emsdk/upstream/emscripten/em++",
+            "cStandard": "c11",
+            "cppStandard": "c++11",
+            "intelliSenseMode": "clang-x64",
+            "compileCommands": "${workspaceFolder}/.vscode/compile_commands2.json",
+            "configurationProvider": "go2sh.cmake-integration",
+            "compilerArgs": [
+                "-std=c++11" ,"-lhiredis", "-lpthread", "-lpqxx", "-lpq"
+            
+            ]
+        },  {
+            "name": "Linux",
+            "includePath": [
+                "${workspaceFolder}/**"
+        
+            ],
+            "defines": [],
+            "compilerPath": "/usr/bin/clang++-9",
+            "cStandard": "c11",
+            "cppStandard": "c++17",
+            "intelliSenseMode": "clang-x64",
+            "compileCommands": "${workspaceFolder}/.vscode/compile_commands.json",
+            "configurationProvider": "go2sh.cmake-integration",
+            "compilerArgs": [
+                "-std=c++17", "-Wall"
+            ]
+        } 
+     
+      
+    ],
+    "version": 4
+}

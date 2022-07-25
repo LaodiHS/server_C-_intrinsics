@@ -1,0 +1,14 @@
+[{
+    "name": "Clang 9",
+    "visualStudioArchitecture": "amd64",
+    "compilers": {
+        "CC": "/usr/bin/clang-9",
+        "CXX": "/usr/bin/clang++-9"
+    },
+
+    "toolchainFile": "/home/hoss/vcpkg/scripts/buildsystems/vcpkg.cmake",
+    "environmentVariables": {
+        "PATH": "/usr/bin"
+      }
+}]
+

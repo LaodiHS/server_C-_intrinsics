@@ -1,0 +1,1 @@
+once a node fails you need to reset the sentil file to point back to the the master node in this case 7001. you also need to clear out the generated files. 

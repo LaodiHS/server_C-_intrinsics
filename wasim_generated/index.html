@@ -1,0 +1,725 @@
+<html>
+
+<head>
+    <style>
+        @import url(https://fonts.googleapis.com/css?family=Open+Sans);
+
+        |body {
+            background: #384d54;
+            color: white;
+        }
+
+        text {
+            fill: white;
+            font-family: 'Open Sans';
+        }
+
+        circle {
+            stroke: white;
+            stroke-width: 1.5px;
+        }
+
+        path.link,
+        path.textpath {
+            fill: none;
+            stroke: #cccccc;
+            stroke-width: 0.5px;
+        }
+
+        path.invis {
+            fill: none;
+            stroke-width: 0;
+        }
+
+        #favorits ul,
+        text {
+            margin-left: 0;
+            padding: 0;
+        }
+
+        #favorits span {
+            display: grid;
+            margin: 0 auto;
+            grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+            grid-auto-rows: minmax(50px, auto);
+        }
+
+        #favorits span div {
+            display: grid;
+            margin-left: 5px;
+            margin-right: 5px;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="favorits"></div>
+
+    <div id="d3"></div>
+</body>
+<script>
+</script>
+<script type="text/javascript">
+    var Module = {
+        onRuntimeInitialized: function () {
+            var instance = new Module.MyClass(10, "hello");
+            const obj = instance.incrementX();
+            instance.x = 20;
+            console.log(Module.MyClass.getStringFromInstance(instance)); // "hello"
+            instance.delete();
+            console.log('readin', Module.gettext());
+   
+
+
+            // class C {};
+            // C* passThrough(C* ptr) { return ptr; }
+
+            let instanceAr = new Module.Array50();
+
+
+            console.log(instanceAr.get(2))
+            instanceAr.set(2, 5);
+            console.log(instanceAr.get(2))
+            instanceAr.delete();
+
+
+
+
+
+
+
+            //start vector
+
+            var retVector = Module['returnVectorData']();
+
+            // vector size
+            var vectorSize = retVector.size();
+
+            // reset vector value
+            retVector.set(vectorSize - 1, 11);
+
+            // push value into vector
+            retVector.push_back(12);
+
+            // retrieve value from the vector
+            for (var i = 0; i < retVector.size(); i++) {
+                // console.log("Vector Value: ", retVector.get(i));
+            }
+
+            // expand vector size
+            retVector.resize(20, 1);
+
+            var retMap = Module['returnMapData']();
+
+            // map size
+            var mapSize = retMap.size();
+
+            // retrieve value from map
+            // console.log("Map Value: ", retMap.get(10));
+
+            // figure out which map keys are available
+            // NB! You must call `register_vector<key_type>`
+            // to make vectors available
+            var mapKeys = retMap.keys();
+            for (var i = 0; i < mapKeys.size(); i++) {
+                var key = mapKeys.get(i);
+                console.log("Map key/value: ", key, retMap.get(key));
+            }
+
+            // reset the value at the given index position
+            retMap.set(10, "OtherValue");
+
+
+
+            //end vector
+
+            const paragraph = d3.select("#d3")
+
+
+
+
+            const app = function () {
+                const modules = {};
+                return {
+                    getService,
+                    inject
+                };
+
+                function inject(dependancy, module) {
+                    modules[dependancy] = module
+                };
+
+                function getService(service) {
+                    const dpendancies = {};
+                    try {
+                        if (Array.isArray(service)) {
+                            service.forEach(dep => {
+                                if (!modules[dep]) throw "dependency does not exist";
+                                dpendancies[dep] = modules[dep];
+                            })
+                            return dpendancies;
+                        }
+
+                        if (!modules[service]) throw "dependency does not exist";
+                        return dpendancies[service] = modules[service];
+                    } catch (err) {
+                        console.error(err);
+                    }
+                };
+            }
+            const applicationServices = new app()
+            applicationServices.inject("eventBus", function (response) {
+                document.addEventListener("click", event => {
+                    return response(event);
+                })
+            });
+            applicationServices.inject("documentLoaded", function (response) {
+                document.addEventListener("DOMContentLoaded", event => {
+                    return response(event);
+                })
+            })
+            class favorits {
+                constructor(DB, options, saved) {
+                    this.favoritsMap = new Map();
+                    this.usersMap = new Map();
+                    this.parent = new Map();
+                    this.parent.set("usersMap", {
+                        obj: null,
+                        map: this.usersMap
+                    })
+                    this.parent.set("favoritsMap", {
+                        obj: null,
+                        map: this.favoritsMap
+                    });
+                    this.parent.set("obj", document.getElementById(options));
+                    this.DB = DB;
+                    this.favorits = saved;
+                    this.templateService = {
+                        favorits: id => {
+                            const element = document.createElement("div");
+                            element.id = "fav-" + id;
+                            element.innerHTML = `<text>User :${id}</text>
+            <img src="https://picsum.photos/id/${id}/100/100"/>`;
+                            return element;
+                        },
+                        users: id => {
+                            const element = document.createElement("div");
+                            element.id = id;
+                            element.innerHTML = `
+            <text>User:${id}</text>
+            <img src="https://picsum.photos/id/${id}/100/100" /> 
+            <ul><button>add/remove</button></ul>
+            `;
+                            return element;
+                        }
+                    }
+                }
+                generateFavoritsandUsersTable({
+                    eventBus,
+                    documentLoaded
+                }) {
+                    // documentLoaded(() => {
+                    this.scafoldApp();
+                    this.generateElements();
+                    eventBus(element => {
+                        const target = element.target;
+                        const parent = target.closest("span");
+                        this.getContext(target, parent);
+                    })
+                    // });
+                }
+                scafoldApp() {
+                    let favorits = {
+                        "users": "Users",
+                        "favorits": "Favorits"
+                    };
+                    for (let key of Object.keys(favorits)) {
+                        const doc = document.createElement("span");
+                        doc.id = key;
+                        this.parent.get(key + "Map").obj = doc;
+                        const header = document.createElement("h1");
+                        header.innerText = key[0].toUpperCase() + key.substring(1);
+                        this.parent.get("obj").insertAdjacentElement("afterbegin", doc)
+                        this.parent.get("obj").insertAdjacentElement("afterbegin", header);
+                    }
+                }
+                generateElements() {
+                    for (let id in this.favorits) {
+                        const element = this.templateService.favorits(id);
+                        this.favoritsMap.set(element, {
+                            id: id,
+                            obj: element
+                        });
+                        this.parent.get("favoritsMap").obj.insertAdjacentElement("afterbegin", element)
+                        this.favoritsMap.set("" + id, {
+                            id: id,
+                            obj: element
+                        });
+                    }
+                    this.DB.forEach(id => {
+                        const element = this.templateService.users(id)
+                        this.parent.get("usersMap").obj.insertAdjacentElement("afterbegin",
+                            element);
+                        this.usersMap.set(element, {
+                            id: id,
+                            obj: element
+                        });
+                        this.usersMap.set("" + id, {
+                            id: id,
+                            obj: element
+                        });
+                    })
+                }
+                getContext(target, parent) {
+                    const table = this.parent.get("usersMap").obj;
+                    if (target.tagName === "BUTTON" && parent === table && this.usersMap.get(target.closest(
+                            "div").id).obj.lastElementChild.firstChild === target) {
+                        const getelementId = target.closest("div").id.toString();
+                        if (this.favoritsMap.has(getelementId)) {
+                            this.favoritsMap.get(getelementId).obj.remove();
+                            delete this.favoritsMap.delete(getelementId);
+                        } else {
+                            const id = target.closest("div").id;
+                            const element = this.templateService.favorits(id)
+                            this.favoritsMap.set(element, {
+                                id: id,
+                                obj: element
+                            });
+                            this.favoritsMap.set(id, {
+                                id: id,
+                                obj: element
+                            });
+                            this.parent.get("favoritsMap").obj.insertAdjacentElement("afterbegin", element);
+                        }
+                    }
+                }
+            }
+            const userData = [1, 2, 3, 4, 5, 6, 7];
+            const savedUserData = {
+                1: {
+                    id: 1,
+                    obj: null
+                },
+                2: {
+                    id: 2,
+                    obj: null
+                }
+            };
+            const favoritsComponents = new favorits(userData, "favorits", savedUserData);
+            favoritsComponents.generateFavoritsandUsersTable(applicationServices.getService(["eventBus",
+                "documentLoaded"
+            ]));
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+            var data = {
+                edges: [{
+                        source: {
+                            id: 0,
+                            label: "Naughty"
+                        },
+                        target: {
+                            id: 1,
+                            label: "By"
+                        },
+                        value: "You 'bout to feel"
+                    },
+                    {
+                        source: {
+                            id: 0,
+                            label: "Naughty"
+                        },
+                        target: {
+                            id: 1,
+                            label: "By"
+                        },
+                        value: "the chronicles of a bionical lyric"
+                    },
+                    {
+                        source: {
+                            id: 0,
+                            label: "Naughty"
+                        },
+                        target: {
+                            id: 1,
+                            label: "By"
+                        },
+                        value: "Lyrically splitting dismissing"
+                    },
+                    {
+                        source: {
+                            id: 1,
+                            label: "By"
+                        },
+                        target: {
+                            id: 2,
+                            label: "Nature"
+                        },
+                        value: "I'm on a mission of just hitting"
+                    },
+                    {
+                        source: {
+                            id: 1,
+                            label: "By"
+                        },
+                        target: {
+                            id: 2,
+                            label: "Nature"
+                        },
+                        value: "Now it's written and"
+                    },
+                    {
+                        source: {
+                            id: 1,
+                            label: "By"
+                        },
+                        target: {
+                            id: 2,
+                            label: "Nature"
+                        },
+                        value: "kitten hitting wit mittens"
+                    },
+                    {
+                        source: {
+                            id: 2,
+                            label: "Nature"
+                        },
+                        target: {
+                            id: 0,
+                            label: "Naughty"
+                        },
+                        value: "I'm missing, wishing, man, listen"
+                    },
+                    {
+                        source: {
+                            id: 2,
+                            label: "Nature"
+                        },
+                        target: {
+                            id: 0,
+                            label: "Naughty"
+                        },
+                        value: "I glisten like"
+                    },
+                    {
+                        source: {
+                            id: 2,
+                            label: "Nature"
+                        },
+                        target: {
+                            id: 0,
+                            label: "Naughty"
+                        },
+                        value: "sun and water while fishing"
+                    },
+                ]
+            };
+
+            function myGraph() {
+
+                var force = d3.layout.force();
+
+                var nodes = force.nodes()
+                var links = force.links();
+
+                var w = window.innerWidth - 20,
+                    h = window.innerHeight,
+                    middle = w / 2;
+                var linkDistance = 300;
+
+                var colors = d3.scale.category20();
+
+                var svg = d3.select("body")
+                    .append("svg:svg")
+                    .attr("width", w)
+                    .attr("height", h)
+                    .style("z-index", -10)
+                    .attr("id", "svg");
+
+                svg.append('svg:defs').selectAll('marker')
+                    .data(['end'])
+                    .enter()
+                    .append('svg:marker')
+                    .attr({
+                        'id': "arrowhead",
+                        'viewBox': '0 -5 10 10',
+                        'refX': 22,
+                        'refY': 0,
+                        'orient': 'auto',
+                        'markerWidth': 20,
+                        'markerHeight': 20,
+                        'markerUnits': "strokeWidth",
+                        'xoverflow': 'visible'
+                    })
+                    .append('svg:path')
+                    .attr('d', 'M0,-5L10,0L0,5')
+                    .attr('fill', '#ccc');
+
+
+                return {
+                    addNode,
+                    addLink,
+                    initialize
+                };
+
+
+                function addNode(n) {
+                    if (!findNode(n.id)) {
+                        nodes.push({
+                            "id": n.id,
+                            "label": n.label
+                        });
+                        update();
+                    }
+                };
+
+                function addLink(source, target, value) {
+                    links.push({
+                        "source": findNode(source.id),
+                        "target": findNode(target.id),
+                        "value": value
+                    });
+                    update();
+                };
+
+                function initialize() {
+                    data.edges.forEach(function (d) {
+                        addNode(d.source);
+                        addNode(d.target);
+                        addLink(d.source, d.target, d.value);
+                    });
+                };
+
+                function findNode(nodeId) {
+                    for (var i in nodes) {
+                        if (nodes[i].id === nodeId) {
+                            return nodes[i];
+                        }
+                    };
+                };
+
+                function countSiblingLinks(source, target) {
+                    var count = 0;
+                    for (var i = 0; i < links.length; ++i) {
+                        if ((links[i].source.id == source.id && links[i].target.id == target.id) || (links[i]
+                                .source.id == target.id && links[i].target.id == source.id))
+                            count++;
+                    };
+                    return count;
+                };
+
+                function getSiblingLinks(source, target) {
+                    var siblings = [];
+                    for (var i = 0; i < links.length; ++i) {
+                        if ((links[i].source.id == source.id && links[i].target.id == target.id) || (links[i]
+                                .source.id == target.id && links[i].target.id == source.id))
+                            siblings.push(links[i].value);
+                    };
+                    return siblings;
+                };
+
+
+
+
+
+                function update() {
+
+                    var path = svg.selectAll("path.link")
+                        .data(force.links());
+
+                    path.enter().append("svg:path")
+                        .attr("id", function (d) {
+                            return d.source.id + "-" + d.value + "-" + d.target.id;
+                        })
+                        .attr("class", "link")
+                        .attr('marker-end', 'url(#arrowhead)');
+
+                    path.exit().remove();
+
+                    var pathInvis = svg.selectAll("path.invis")
+                        .data(force.links());
+
+                    pathInvis.enter().append("svg:path")
+                        .attr("id", function (d) {
+                            return "invis_" + d.source.id + "-" + d.value + "-" + d.target.id;
+                        })
+                        .attr("class", "invis");
+
+                    pathInvis.exit().remove();
+
+                    var pathLabel = svg.selectAll(".pathLabel")
+                        .data(force.links());
+
+                    pathLabel.enter().append("g").append("svg:text")
+                        .attr("class", "pathLabel")
+                        .append("svg:textPath")
+                        .attr("startOffset", "50%")
+                        .attr("text-anchor", "middle")
+                        .attr("xlink:href", function (d) {
+                            return "#invis_" + d.source.id + "-" + d.value + "-" + d.target.id;
+                        })
+                        .style("fill", "#cccccc")
+                        .style("font-size", 10)
+                        .text(function (d) {
+                            return d.value;
+                        });
+
+                    var node = svg.selectAll("g.node")
+                        .data(force.nodes());
+
+                    var nodeEnter = node.enter().append("g")
+                        .attr("class", "node")
+                        .call(force.drag);
+
+                    nodeEnter.append("svg:circle")
+                        .attr("r", 10)
+                        .attr("id", function (d) {
+                            return "Node;" + d.id;
+                        })
+                        .attr("class", "nodeStrokeClass")
+                        .attr("fill", "#0db7ed")
+
+                    nodeEnter.append("svg:text")
+                        .attr("class", "textClass")
+                        .attr("x", 20)
+                        .attr("y", ".31em")
+                        .text(function (d) {
+                            return d.label;
+                        });
+
+                    node.exit().remove();
+
+                    function arcPath(leftHand, d) {
+                        var x1 = leftHand ? d.source.x : d.target.x,
+                            y1 = leftHand ? d.source.y : d.target.y,
+                            x2 = leftHand ? d.target.x : d.source.x,
+                            y2 = leftHand ? d.target.y : d.source.y,
+                            dx = x2 - x1,
+                            dy = y2 - y1,
+                            dr = Math.sqrt(dx * dx + dy * dy),
+                            drx = dr,
+                            dry = dr,
+                            sweep = leftHand ? 0 : 1;
+                        siblingCount = countSiblingLinks(d.source, d.target)
+                        xRotation = 0,
+                            largeArc = 0;
+
+                        if (siblingCount > 1) {
+                            var siblings = getSiblingLinks(d.source, d.target);
+                            // console.log(siblings);
+                            var arcScale = d3.scale.ordinal()
+                                .domain(siblings)
+                                .rangePoints([1, siblingCount]);
+                            drx = drx / (1 + (1 / siblingCount) * (arcScale(d.value) - 1));
+                            dry = dry / (1 + (1 / siblingCount) * (arcScale(d.value) - 1));
+                        }
+
+                        return "M" + x1 + "," + y1 + "A" + drx + ", " + dry + " " + xRotation + ", " +
+                            largeArc + ", " + sweep + " " + x2 + "," + y2;
+                    }
+
+                    force.on("tick", function (e) {
+                        var q = d3.geom.quadtree(nodes),
+                            i = 0,
+                            n = nodes.length,
+                            k = .1 * e.alpha;
+
+                        while (++i < n) q.visit(collide(nodes[i]));
+
+                        node.attr("transform", function (d) {
+                            return "translate(" + d.x + "," + d.y + ")";
+                        });
+
+                        path.attr("d", function (d) {
+                            return arcPath(true, d);
+                        });
+
+                        pathInvis.attr("d", function (d) {
+                            return arcPath(d.source.x < d.target.x, d);
+                        });
+                    });
+
+                    force
+                        .charge(-10000)
+                        .friction(0.5)
+                        .linkDistance(linkDistance)
+                        .size([w, h])
+                        .start();
+                    keepNodesOnTop();
+
+                }
+
+                update();
+
+                function collide(node) {
+                    var r = node.radius + 16,
+                        nx1 = node.x - r,
+                        nx2 = node.x + r,
+                        ny1 = node.y - r,
+                        ny2 = node.y + r;
+                    return function (quad, x1, y1, x2, y2) {
+                        if (quad.point && (quad.point !== node)) {
+                            var x = node.x - quad.point.x,
+                                y = node.y - quad.point.y,
+                                l = Math.sqrt(x * x + y * y),
+                                r = node.radius + quad.point.radius;
+                            if (l < r) {
+                                l = (l - r) / l * .5;
+                                node.x -= x *= l;
+                                node.y -= y *= l;
+                                quad.point.x += x;
+                                quad.point.y += y;
+                            }
+                        }
+                        return x1 > nx2 || x2 < nx1 || y1 > ny2 || y2 < ny1;
+                    };
+                }
+            }
+
+            function drawGraph() {
+                graph = new myGraph();
+                graph.initialize();
+            }
+
+            drawGraph();
+
+            function keepNodesOnTop() {
+                $(".nodeStrokeClass").each(function (index) {
+                    var gNode = this.parentNode;
+                    gNode.parentNode.appendChild(gNode);
+                });
+            }
+
+
+
+
+
+
+
+
+
+
+
+        }
+
+    };
+</script>
+<script src="https://d3js.org/d3.v3.min.js" charset="utf-8"></script>
+<script src="https://code.jquery.com/jquery-2.2.4.min.js"></script>
+
+
+<script src="module.js"></script>
+
+</html>

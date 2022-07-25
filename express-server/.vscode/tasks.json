@@ -1,0 +1,52 @@
+{
+    "tasks": [
+        {
+            "type": "shell",
+            "label": "clang++-9 build active file",
+            "command": "/usr/bin/clang++-9",
+            "args": [
+                "-g",
+                "${file}",
+                "-o",
+              
+                "${fileDirname}/build/a.out",
+                "-std=c++17"
+            ],
+            "options": {
+                "cwd": "/usr/bin"
+            }
+        },
+        {
+            "type": "shell",
+            "label": "gcc-9 build active file",
+            "command": "/usr/bin/g++-9",
+            "args": [
+                "-std=c++17",
+                "-g",
+                "${file}",
+            
+                "-o",
+                "${fileDirname}/build/a.out"
+            ],
+            "options": {
+                "cwd": "/usr/bin"
+            }
+        },
+        {
+            "type": "shell",
+            "label": "em++ build active file",
+            "command": "/home/hoss/emsdk/upstream/emscripten/em++",
+            "args": [
+                "-g",
+                "${file}",
+                "-o",
+                "${fileDirname}/${fileBasenameNoExtension}",
+                "-std=c++11"
+            ],
+            "options": {
+                "cwd": "/home/hoss/emsdk/upstream/emscripten"
+            }
+        }
+    ],
+    "version": "2.0.0"
+}

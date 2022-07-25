@@ -1,0 +1,77 @@
+[
+{
+  "directory": "/home/hoss/Documents/algorithms/server_layer/server/build",
+  "command": "/usr/bin/clang++-9  -DFMT_LOCALE -I/home/hoss/Documents/algorithms/server_layer/server/build -I/home/hoss/Documents/algorithms/server_layer/server/threader -I/home/hoss/Documents/algorithms/server_layer/server/external_cpp_libs/cpp-taskflow -isystem /home/hoss/vcpkg/installed/x64-linux/include  -g -D_GLIBCXX_DEBUG -fPIE   -std=gnu++2a -o CMakeFiles/server.dir/main.cpp.o -c /home/hoss/Documents/algorithms/server_layer/server/main.cpp",
+  "file": "/home/hoss/Documents/algorithms/server_layer/server/main.cpp"
+},
+{
+  "directory": "/home/hoss/Documents/algorithms/server_layer/server/build",
+  "command": "/usr/bin/clang++-9  -DFMT_LOCALE -I/home/hoss/Documents/algorithms/server_layer/server/build -I/home/hoss/Documents/algorithms/server_layer/server/threader -I/home/hoss/Documents/algorithms/server_layer/server/external_cpp_libs/cpp-taskflow -isystem /home/hoss/vcpkg/installed/x64-linux/include  -g -D_GLIBCXX_DEBUG -fPIC   -std=gnu++2a -o CMakeFiles/mylib.dir/lib.cpp.o -c /home/hoss/Documents/algorithms/server_layer/server/lib.cpp",
+  "file": "/home/hoss/Documents/algorithms/server_layer/server/lib.cpp"
+},
+{
+  "directory": "/home/hoss/Documents/algorithms/server_layer/server/build",
+  "command": "/usr/bin/clang++-9  -DFMT_LOCALE -I/home/hoss/Documents/algorithms/server_layer/server/build -I/home/hoss/Documents/algorithms/server_layer/server/threader -I/home/hoss/Documents/algorithms/server_layer/server/external_cpp_libs/cpp-taskflow -isystem /home/hoss/vcpkg/installed/x64-linux/include  -g -D_GLIBCXX_DEBUG -fPIC   -std=gnu++2a -o CMakeFiles/mylib.dir/multi_threader.cpp.o -c /home/hoss/Documents/algorithms/server_layer/server/multi_threader.cpp",
+  "file": "/home/hoss/Documents/algorithms/server_layer/server/multi_threader.cpp"
+},
+{
+  "directory": "/home/hoss/Documents/algorithms/server_layer/server/build",
+  "command": "/usr/bin/clang++-9  -DFMT_LOCALE -I/home/hoss/Documents/algorithms/server_layer/server/build -I/home/hoss/Documents/algorithms/server_layer/server/threader -I/home/hoss/Documents/algorithms/server_layer/server/external_cpp_libs/cpp-taskflow -isystem /home/hoss/vcpkg/installed/x64-linux/include  -g -D_GLIBCXX_DEBUG -fPIC   -std=gnu++2a -o CMakeFiles/mylib.dir/seralized_types/seralizing_lib.cpp.o -c /home/hoss/Documents/algorithms/server_layer/server/seralized_types/seralizing_lib.cpp",
+  "file": "/home/hoss/Documents/algorithms/server_layer/server/seralized_types/seralizing_lib.cpp"
+},
+{
+  "directory": "/home/hoss/Documents/algorithms/server_layer/server/build",
+  "command": "/usr/bin/clang++-9  -DFMT_LOCALE -I/home/hoss/Documents/algorithms/server_layer/server/build -I/home/hoss/Documents/algorithms/server_layer/server/threader -I/home/hoss/Documents/algorithms/server_layer/server/external_cpp_libs/cpp-taskflow -isystem /home/hoss/vcpkg/installed/x64-linux/include  -g -D_GLIBCXX_DEBUG -fPIC   -std=gnu++2a -o CMakeFiles/mylib.dir/seralized_types/array_module.cpp.o -c /home/hoss/Documents/algorithms/server_layer/server/seralized_types/array_module.cpp",
+  "file": "/home/hoss/Documents/algorithms/server_layer/server/seralized_types/array_module.cpp"
+},
+{
+  "directory": "/home/hoss/Documents/algorithms/server_layer/server/build",
+  "command": "/usr/bin/clang++-9  -DFMT_LOCALE -I/home/hoss/Documents/algorithms/server_layer/server/build -I/home/hoss/Documents/algorithms/server_layer/server/threader -I/home/hoss/Documents/algorithms/server_layer/server/external_cpp_libs/cpp-taskflow -isystem /home/hoss/vcpkg/installed/x64-linux/include  -g -D_GLIBCXX_DEBUG -fPIC   -std=gnu++2a -o CMakeFiles/mylib.dir/socket_thread_layer/socket.cpp.o -c /home/hoss/Documents/algorithms/server_layer/server/socket_thread_layer/socket.cpp",
+  "file": "/home/hoss/Documents/algorithms/server_layer/server/socket_thread_layer/socket.cpp"
+},
+{
+  "directory": "/home/hoss/Documents/algorithms/server_layer/server/build",
+  "command": "/usr/bin/clang++-9  -DFMT_LOCALE -I/home/hoss/Documents/algorithms/server_layer/server/build -I/home/hoss/Documents/algorithms/server_layer/server/threader -I/home/hoss/Documents/algorithms/server_layer/server/external_cpp_libs/cpp-taskflow -isystem /home/hoss/vcpkg/installed/x64-linux/include  -g -D_GLIBCXX_DEBUG -fPIC   -std=gnu++2a -o CMakeFiles/mylib.dir/socket_thread_layer/client.cpp.o -c /home/hoss/Documents/algorithms/server_layer/server/socket_thread_layer/client.cpp",
+  "file": "/home/hoss/Documents/algorithms/server_layer/server/socket_thread_layer/client.cpp"
+},
+{
+  "directory": "/home/hoss/Documents/algorithms/server_layer/server/build",
+  "command": "/usr/bin/clang++-9  -DFMT_LOCALE -I/home/hoss/Documents/algorithms/server_layer/server/build -I/home/hoss/Documents/algorithms/server_layer/server/threader -I/home/hoss/Documents/algorithms/server_layer/server/external_cpp_libs/cpp-taskflow -isystem /home/hoss/vcpkg/installed/x64-linux/include  -g -D_GLIBCXX_DEBUG -fPIC   -std=gnu++2a -o CMakeFiles/mylib.dir/seralized_types/vertualized_terminal.cpp.o -c /home/hoss/Documents/algorithms/server_layer/server/seralized_types/vertualized_terminal.cpp",
+  "file": "/home/hoss/Documents/algorithms/server_layer/server/seralized_types/vertualized_terminal.cpp"
+},
+{
+  "directory": "/home/hoss/Documents/algorithms/server_layer/server/build",
+  "command": "/usr/bin/clang++-9  -DFMT_LOCALE -I/home/hoss/Documents/algorithms/server_layer/server/build -I/home/hoss/Documents/algorithms/server_layer/server/threader -I/home/hoss/Documents/algorithms/server_layer/server/external_cpp_libs/cpp-taskflow -isystem /home/hoss/vcpkg/installed/x64-linux/include  -g -D_GLIBCXX_DEBUG -fPIC   -std=gnu++2a -o CMakeFiles/mylib.dir/utilites/deliminate.cpp.o -c /home/hoss/Documents/algorithms/server_layer/server/utilites/deliminate.cpp",
+  "file": "/home/hoss/Documents/algorithms/server_layer/server/utilites/deliminate.cpp"
+},
+{
+  "directory": "/home/hoss/Documents/algorithms/server_layer/server/build",
+  "command": "/usr/bin/clang++-9  -DFMT_LOCALE -I/home/hoss/Documents/algorithms/server_layer/server/build -I/home/hoss/Documents/algorithms/server_layer/server/threader -I/home/hoss/Documents/algorithms/server_layer/server/external_cpp_libs/cpp-taskflow -isystem /home/hoss/vcpkg/installed/x64-linux/include  -g -D_GLIBCXX_DEBUG -fPIC   -std=gnu++2a -o CMakeFiles/mylib.dir/src/Penguin.cpp.o -c /home/hoss/Documents/algorithms/server_layer/server/src/Penguin.cpp",
+  "file": "/home/hoss/Documents/algorithms/server_layer/server/src/Penguin.cpp"
+},
+{
+  "directory": "/home/hoss/Documents/algorithms/server_layer/server/build/googletest/googlemock",
+  "command": "/usr/bin/clang++-9   -I/home/hoss/Documents/algorithms/server_layer/server/build -isystem /home/hoss/Documents/algorithms/server_layer/server/googletest/googlemock/include -isystem /home/hoss/Documents/algorithms/server_layer/server/googletest/googlemock -isystem /home/hoss/Documents/algorithms/server_layer/server/googletest/googletest/include -isystem /home/hoss/Documents/algorithms/server_layer/server/googletest/googletest  -g -fPIC   -Wall -Wshadow -Werror -Wconversion -DGTEST_HAS_PTHREAD=1 -fexceptions -W -Wpointer-arith -Wreturn-type -Wcast-qual -Wwrite-strings -Wswitch -Wunused-parameter -Wcast-align -Wchar-subscripts -Winline -Wredundant-decls -std=c++2a -o CMakeFiles/gmock_main.dir/src/gmock_main.cc.o -c /home/hoss/Documents/algorithms/server_layer/server/googletest/googlemock/src/gmock_main.cc",
+  "file": "/home/hoss/Documents/algorithms/server_layer/server/googletest/googlemock/src/gmock_main.cc"
+},
+{
+  "directory": "/home/hoss/Documents/algorithms/server_layer/server/build/googletest/googlemock",
+  "command": "/usr/bin/clang++-9   -I/home/hoss/Documents/algorithms/server_layer/server/build -I/home/hoss/Documents/algorithms/server_layer/server/googletest/googlemock/include -I/home/hoss/Documents/algorithms/server_layer/server/googletest/googlemock -isystem /home/hoss/Documents/algorithms/server_layer/server/googletest/googletest/include -isystem /home/hoss/Documents/algorithms/server_layer/server/googletest/googletest  -g -fPIC   -Wall -Wshadow -Werror -Wconversion -DGTEST_HAS_PTHREAD=1 -fexceptions -W -Wpointer-arith -Wreturn-type -Wcast-qual -Wwrite-strings -Wswitch -Wunused-parameter -Wcast-align -Wchar-subscripts -Winline -Wredundant-decls -std=c++2a -o CMakeFiles/gmock.dir/src/gmock-all.cc.o -c /home/hoss/Documents/algorithms/server_layer/server/googletest/googlemock/src/gmock-all.cc",
+  "file": "/home/hoss/Documents/algorithms/server_layer/server/googletest/googlemock/src/gmock-all.cc"
+},
+{
+  "directory": "/home/hoss/Documents/algorithms/server_layer/server/build/googletest/googletest",
+  "command": "/usr/bin/clang++-9   -I/home/hoss/Documents/algorithms/server_layer/server/build -isystem /home/hoss/Documents/algorithms/server_layer/server/googletest/googletest/include -isystem /home/hoss/Documents/algorithms/server_layer/server/googletest/googletest  -g -fPIC   -Wall -Wshadow -Werror -Wconversion -DGTEST_HAS_PTHREAD=1 -fexceptions -W -Wpointer-arith -Wreturn-type -Wcast-qual -Wwrite-strings -Wswitch -Wunused-parameter -Wcast-align -Wchar-subscripts -Winline -Wredundant-decls -std=c++2a -o CMakeFiles/gtest_main.dir/src/gtest_main.cc.o -c /home/hoss/Documents/algorithms/server_layer/server/googletest/googletest/src/gtest_main.cc",
+  "file": "/home/hoss/Documents/algorithms/server_layer/server/googletest/googletest/src/gtest_main.cc"
+},
+{
+  "directory": "/home/hoss/Documents/algorithms/server_layer/server/build/googletest/googletest",
+  "command": "/usr/bin/clang++-9   -I/home/hoss/Documents/algorithms/server_layer/server/build -I/home/hoss/Documents/algorithms/server_layer/server/googletest/googletest/include -I/home/hoss/Documents/algorithms/server_layer/server/googletest/googletest  -g -fPIC   -Wall -Wshadow -Werror -Wconversion -DGTEST_HAS_PTHREAD=1 -fexceptions -W -Wpointer-arith -Wreturn-type -Wcast-qual -Wwrite-strings -Wswitch -Wunused-parameter -Wcast-align -Wchar-subscripts -Winline -Wredundant-decls -std=c++2a -o CMakeFiles/gtest.dir/src/gtest-all.cc.o -c /home/hoss/Documents/algorithms/server_layer/server/googletest/googletest/src/gtest-all.cc",
+  "file": "/home/hoss/Documents/algorithms/server_layer/server/googletest/googletest/src/gtest-all.cc"
+},
+{
+  "directory": "/home/hoss/Documents/algorithms/server_layer/server/build/testing",
+  "command": "/usr/bin/clang++-9  -DFMT_LOCALE -D_GLIBCXX_DEBUG -I/home/hoss/Documents/algorithms/server_layer/server/build -I/home/hoss/Documents/algorithms/server_layer/server/threader -I/home/hoss/Documents/algorithms/server_layer/server/external_cpp_libs/cpp-taskflow -isystem /home/hoss/Documents/algorithms/server_layer/server/googletest/googletest/include -isystem /home/hoss/Documents/algorithms/server_layer/server/googletest/googletest -isystem /home/hoss/vcpkg/installed/x64-linux/include  -g -D_GLIBCXX_DEBUG -D_GLIBCXX_DEBUG -fPIE   -std=gnu++2a -o CMakeFiles/penguin_test.dir/PenguinTest.cpp.o -c /home/hoss/Documents/algorithms/server_layer/server/testing/PenguinTest.cpp",
+  "file": "/home/hoss/Documents/algorithms/server_layer/server/testing/PenguinTest.cpp"
+}
+]

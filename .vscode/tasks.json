@@ -1,0 +1,131 @@
+{
+    "tasks": [
+        {
+            "type": "shell",
+            "label": "nvcc build active file",
+            "command": "/usr/local/cuda-10.2/bin/nvcc",
+            "args": [
+                "-g",
+                "-std=c++11",
+                "${file}",
+                "-o",
+                "${fileDirname}/build/a.out",
+                "-std=c++11",
+                "-lpqxx",
+                "-lpq"
+            ],
+            "options": {
+                "cwd": "/usr/bin"
+            }
+        },
+        {
+            "type": "shell",
+            "label": "clang++-9 build active file",
+            "command": "/usr/bin/clang++-9",
+            "args": [
+                "-v",
+                "-lpqxx",
+                "-enable-libstdcxx-debug",
+                "-march=native",
+                "-gcolumn-info",
+                "-fPIE",
+                "-m64",
+                "-u",
+                "-pipe",
+                "-lpq",
+                "-lhiredis",
+                "-lpthread",
+                "-std=c++17",
+                "-g",
+                "${file}",
+                "-o",
+                "${fileDirname}/build/a.out",
+                "-pthread",
+                "/usr/local/lib/libfmt.a"
+            ],
+            "options": {
+                "cwd": "/usr/bin"
+            }
+        },
+        {
+            "type": "shell",
+            "label": "gcc-9 build active file",
+            "command": "/usr/bin/g++-9",
+            "args": [
+                "-std=c++17",
+                "-g",
+                "${file}",
+                "-o",
+                "${fileDirname}/build/a.out",
+                "-lpqxx",
+                "-lpq",
+                "-lhiredis",
+                "-fsanitize=thread",
+                "-fPIE",
+                "-pie",
+                "-g",
+                "-fsave-optimization-record",
+                "-foptimization-record-file=myOptfile.yaml",
+                "-lpthread",
+                "-Ofast",
+                "-v",
+                "-g",
+                "-m32",
+                "-pthread"
+            ],
+            "options": {
+                "cwd": "/usr/bin"
+            }
+        },
+        {
+            "type": "shell",
+            "label": "em++ build active file",
+            "command": "/home/hoss/emsdk/upstream/emscripten/em++",
+            "args": [
+                "-g",
+                "${file}",
+                "-o",
+                "${fileDirname}/${fileBasenameNoExtension}",
+                "-std=c++11",
+                "-lpqxx",
+                "-lpq"
+            ],
+            "options": {
+                "cwd": "/home/hoss/emsdk/upstream/emscripten"
+            }
+        },
+        {
+            "label": "CMake Debug",
+            "type": "shell",
+            "options": {
+                "cwd": "${workspaceRoot}/build"
+            },
+            "command": "CMake",
+            "args": [
+                "-G 'NMake Makefiles' -DCMAKE_BUILD_TYPE=Debug .."
+            ]
+        },
+        {
+            "type": "shell",
+            "label": "C/C++: g++-9 build active file",
+            "command": "/usr/bin/g++-9",
+            "args": [
+                "-g",
+                "${file}",
+                "-o",
+                "${fileDirname}/${fileBasenameNoExtension}"
+            ],
+            "options": {
+                "cwd": "${workspaceFolder}"
+            },
+            "problemMatcher": [
+                "$gcc"
+            ],
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            }
+        }
+    ],
+    "version": "2.0.0"
+}

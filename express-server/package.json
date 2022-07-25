@@ -1,0 +1,46 @@
+{
+  "name": "express-server",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "dev": "next",
+    "build": "next build",
+    "start": "next start"
+  },
+  "type": "module",
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "-": "0.0.1",
+    "@zeit/next-css": "^1.0.1",
+    "axios": "^0.26.1",
+    "babel-plugin-styled-components": "^1.13.3",
+    "dotenv": "^8.6.0",
+    "es6-promise": "^4.2.8",
+    "express": "^4.17.3",
+    "express-graphql": "^0.9.0",
+    "g": "^2.0.1",
+    "graphql": "^14.7.0",
+    "graphql-relay": "^0.6.0",
+    "grpc": "^1.24.11",
+    "ioredis": "^4.28.5",
+    "isomorphic-fetch": "^2.2.1",
+    "isomorphic-unfetch": "^3.1.0",
+    "mongodb": "^3.7.3",
+    "mongoose": "^5.13.14",
+    "next": "^9.5.5",
+    "nodemon": "^2.0.15",
+    "pg": "^7.18.2",
+    "react": "^16.14.0",
+    "react-dom": "^16.14.0",
+    "react-relay": "^8.0.0",
+    "redis": "^2.8.0",
+    "redline": "^1.0.1",
+    "styled-components": "^4.4.1",
+    "styled-css-grid": "^1.2.1"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.17.8"
+  }
+}

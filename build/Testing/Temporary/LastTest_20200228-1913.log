@@ -1,0 +1,19 @@
+Start testing: Feb 28 11:17 PST
+----------------------------------------------------------
+Unable to find executable: pengin_test
+1/1 Testing: penguin_test
+1/1 Test: penguin_test
+Command: ""
+Directory: /home/hoss/Documents/algorithms/server_layer/server/build/testing
+"penguin_test" start time: 
+Output:
+----------------------------------------------------------
+<end of output>
+Test time =   0.00 sec
+----------------------------------------------------------
+Test Passed.
+"penguin_test" end time: Feb 28 11:17 PST
+"penguin_test" time elapsed: 00:00:00
+----------------------------------------------------------
+
+End testing: Feb 28 11:17 PST
